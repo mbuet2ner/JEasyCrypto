@@ -1,3 +1,5 @@
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/mbuet2ner/JEasyCrypto?style=for-the-badge"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/mbuet2ner/JEasyCrypto ?style=for-the-badge"> <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/mbuet2ner/JEasyCrypto?style=for-the-badge"> <img alt="GitHub" src="https://img.shields.io/github/license/mbuet2ner/JEasyCrypto?style=for-the-badge">
+
 # README #
 
 JEasyCrypto is a library and a collection of related applications enabling encryption and decryption of text using different methdods.
