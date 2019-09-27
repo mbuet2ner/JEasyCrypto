@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Built-By: juustila
+Bundle-Description: A simple encrypt-decrypt tool for teaching purposes
+Bundle-License: some license
+Bundle-ManifestVersion: 1
+Bundle-Name: easycrypto
+Bundle-SymbolicName: easycrypto
+Export-Package: easycrypto;version="1.1.1"
