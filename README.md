@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png">
+</p>
+
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/mbuet2ner/JEasyCrypto?style=for-the-badge"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/mbuet2ner/JEasyCrypto ?style=for-the-badge"> <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/mbuet2ner/JEasyCrypto?style=for-the-badge"> <img alt="GitHub" src="https://img.shields.io/github/license/mbuet2ner/JEasyCrypto?style=for-the-badge">
 
 # README #
