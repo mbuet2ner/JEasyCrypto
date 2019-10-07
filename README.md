@@ -41,7 +41,8 @@ You can also run the Client and Server on the same machine. When launching the c
 
 ### Contribution guidelines ###
 
-* TBD
+* To get started contributing to the project, see the [contributing guide](CONTRIBUTING.md).
+* Please also take a look at our [code of conduct](code-of-conduct.md), that acts as a guideline on how to communicate with people on this project. If you experienced a violation, do not hesitate to contact one of the maintainers.
 
 ### Who do I talk to? ###
 
