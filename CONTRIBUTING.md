@@ -70,6 +70,12 @@ discuss the implementation in the bug report first if you are not 100% about
 what would be the best fix.
 
 Some further information about pull PRs can be gathered [here](https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/).
+Further information on how to fork a repository can be found [here](https://help.github.com/en/articles/fork-a-repo).
+
+#### Claim an issue
+
+To claim an issue for your group, please comment on one of the issues or open up a new one: first come, first served! If you will not provide a pull request for that issue after a reasonable amount of time, we may reassign your issue to another group.
+Please also note, that very late claimings will not be accepted and the corresponding pull request will not be accepted!
 
 #### Be nice to the git history
 
@@ -142,7 +148,7 @@ or a bug you want to fix), the following channels can be used:
   can also create a new issue - please keep in mind to create issues only to
   discuss quite specific points about the development, and not general user
   feedback or support requests.
-- [Slack channel](https://slack.com) - to be anounced.
+- [Slack channel](https://slack.com) - you will be invited.
 
 Thanks!
 
