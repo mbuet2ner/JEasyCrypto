@@ -27,6 +27,10 @@ You can also run the Client and Server on the same machine. When launching the c
 
 ### How do I get set up? ###
 
+0. For this project, we use `openjdk`.
+    * Install instructions and download links for all systems can be found [here](https://openjdk.java.net/install/).
+    * The current version used is `openjdk 11.0.4`.
+    * We encourage you to use the [IntelliJ IDEA](https://www.jetbrains.com/idea/) IDE.
 1. Clone the project.
     * Dependencies
         * Uses https://code.google.com/archive/p/json-simple/ on Server and Client to create/parse JSON.
@@ -44,8 +48,8 @@ You can also run the Client and Server on the same machine. When launching the c
 * To get started contributing to the project, see the [contributing guide](CONTRIBUTING.md).
 * Please also take a look at our [code of conduct](code-of-conduct.md), that acts as a guideline on how to communicate with people on this project. If you experienced a violation, do not hesitate to contact one of the maintainers.
 * We follow [these](https://google.github.io/styleguide/javaguide.html) Java coding conventions, so please make sure that you adhere to them.
+* Please format your code. This project considers the output of the [IntelliJ IDEA](https://www.jetbrains.com/idea/) IDE `Reformat Code` option as the gold standard.
 
 ### Who do I talk to? ###
 
-* Antti Juustila
-* firstname.lastname@oulu.fi
+* Please use our Slack channel to message the maintainers.
