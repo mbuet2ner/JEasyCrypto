@@ -5,6 +5,8 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.HashMap;
+
 import org.json.simple.JSONObject;
 
 
@@ -137,38 +139,37 @@ public class CryptoClient implements Runnable, ReaderObserver {
 	}
 	
 	private void handleCapabilityRequest() throws IOException {
-		JSONObject request = new JSONObject();
-		request.put("id", requestId++);
-		request.put("operation", "capabilities");
-		String data = request.toJSONString();
+		String data = createRequest("capabilities", null, null);
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), serverAddr, serverPort);
 		socket.send(packet);
 	}
 	
 	private void handleEncryptRequest() throws IOException {
-		JSONObject request = new JSONObject();
-		request.put("id", requestId++);
-		request.put("operation", "encrypt");
 		String method = enterText("Give encryption method", true);
 		String text = enterText("Give text to encrypt", false);
-		request.put("method", method);
-		request.put("data", text);
-		String data = request.toJSONString();
+		String data = createRequest("encrypt", method, text);
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), serverAddr, serverPort);
 		socket.send(packet);
 	}
 	
 	private void handleDecryptRequest() throws IOException {
-		JSONObject request = new JSONObject();
-		request.put("id", requestId++);
-		request.put("operation", "decrypt");
 		String method = enterText("Give decryption method", true);
 		String text = enterText("Give text to decrypt", false);
-		request.put("method", method);
-		request.put("data", text);
-		String data = request.toJSONString();
+		String data = createRequest("decrypt", method, text);
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), serverAddr, serverPort);
 		socket.send(packet);
+	}
+
+	private String createRequest(String operation, String method, String text) {
+		HashMap<String, Object> requestMap = new HashMap<>();
+		requestMap.put("id", requestId++);
+		requestMap.put("operation", operation);
+		requestMap.put("method", method);
+		requestMap.put("data", text);
+		JSONObject requestJsonObject = new JSONObject(requestMap);
+		String requestString = requestJsonObject.toJSONString();
+
+		return requestString;
 	}
 	
 	private void handleQuitRequest() {

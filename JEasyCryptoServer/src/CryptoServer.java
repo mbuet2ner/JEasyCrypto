@@ -3,6 +3,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
+import java.util.HashMap;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
@@ -101,11 +102,14 @@ public class CryptoServer implements Runnable {
 	} // end run()
 	
 	private String createResponse(String op, long id, EasyCryptoAPI.Result result) {
-		JSONObject toSend = new JSONObject();
-		toSend.put("id", id);
-		toSend.put("operation", op+"-response");
-		toSend.put("result", result.resultCode().ordinal());
-		toSend.put("data", result.result());
-		return toSend.toJSONString();
+		HashMap<String, Object> responseMap = new HashMap<>();
+		responseMap.put("id", id);
+		responseMap.put("operation", op + "-response");
+		responseMap.put("result", result.resultCode().ordinal());
+		responseMap.put("data", result.result());
+		JSONObject ResponseJsonObject = new JSONObject(responseMap);
+		String responseString = ResponseJsonObject.toJSONString();
+
+		return responseString;
 	}
 }
