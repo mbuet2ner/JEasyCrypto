@@ -17,16 +17,23 @@ public class CryptoServer implements Runnable {
 	private DatagramSocket socket;
 	private byte[] incoming;
 	private boolean running = true;
-	
+	private static int port = 10000;
+
 	public static void main(String[] args) {
+        	if (args.length > 0) {
+        		try {
+				port = Integer.parseInt(args[0]);
+ 			} catch (NumberFormatException e) {
+				e.printStackTrace();
+ 			}
+                }
 		new CryptoServer().run();
 	}
 
 	public void run() {
-
 		try {
-			System.out.println("Launching CryptoServer...");
-			socket = new DatagramSocket(10000);
+			System.out.printf("Launching CryptoServer (listening on port : %s)...\n", port);
+			socket = new DatagramSocket(port);
 			System.out.printf("Local addess is : %s\n", socket.getLocalAddress().getHostAddress());
 			incoming = new byte[4096];
 			DatagramPacket packet = new DatagramPacket(incoming, incoming.length);
