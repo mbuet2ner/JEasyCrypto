@@ -24,7 +24,9 @@ public class CryptoServer implements Runnable {
         		try {
 				port = Integer.parseInt(args[0]);
  			} catch (NumberFormatException e) {
-				e.printStackTrace();
+				System.out.printf("Error: The port ('%s') you entered is not valid. Please provide a valid port.\n", args[0]);
+				System.out.println("Expected, e.g., './start.sh 3000'");
+				System.out.println("Falling back to the default port of '10000' instead.");
  			}
                 }
 		new CryptoServer().run();
