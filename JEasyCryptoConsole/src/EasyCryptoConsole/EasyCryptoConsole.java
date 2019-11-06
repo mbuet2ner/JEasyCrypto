@@ -22,14 +22,17 @@ public class EasyCryptoConsole {
 
 			while (true) {
 				String d = console.readLine("Do you wish to encrypt or decrypt (e or d)? > ");
-				String e = console.readLine("Please enter text to be encrypted > ");
-				String m = console.readLine("Please enter encryption method > ");
+				
 
 				EasyCryptoAPI.Result result;
 
 				if (d.equalsIgnoreCase("e")) {
+					String e = console.readLine("Please enter text to be encrypted > ");
+					String m = console.readLine("Please enter encryption method > ");
 					result = EasyCryptoAPI.encrypt(e, m);
 				} else if (d.equalsIgnoreCase("d")) {
+					String e = console.readLine("Please enter text to be decrypted > ");
+					String m = console.readLine("Please enter decryption method > ");
 					result = EasyCryptoAPI.decrypt(e, m);
 				} else {
 					return;
