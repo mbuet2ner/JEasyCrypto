@@ -156,6 +156,7 @@ public class CryptoClient implements Runnable, ReaderObserver {
 	}
 	
 	private void handleEncryptRequest() throws IOException {
+		System.out.println("The methods are: reverse, matrix, cyr");
 		String method = enterText("Give encryption method", true);
 		String text = enterText("Give text to encrypt", false);
 		String data = createRequest("encrypt", method, text);
@@ -178,8 +179,8 @@ public class CryptoClient implements Runnable, ReaderObserver {
 		requestMap.put("method", method);
 		requestMap.put("data", text);
 		JSONObject requestJsonObject = new JSONObject(requestMap);
-		String requestString = requestJsonObject.toJSONString();
 
+		String requestString = requestJsonObject.toString();
 		return requestString;
 	}
 	
