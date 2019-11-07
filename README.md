@@ -34,7 +34,7 @@ You can also run the Client and Server on the same machine. When launching the c
 1. Clone the project.
     * Dependencies
         * Uses https://code.google.com/archive/p/json-simple/ on Server and Client to create/parse JSON.
-        * Download the json-simple-1.1.1.jar to project root directory before building and running the Client or Server.
+        * Download the json-20190722.jar to project root directory before building and running the Client or Server.
 2. Build the lib using build.sh, which exports it as a .jar file into the project root directory.
     * If on Windows, port the shell scripts or use a shell that understands shell scripts
 3. Then build the server and client, using corresponding build.sh files for each. 
