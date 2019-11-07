@@ -22,8 +22,7 @@ public class CryptoClient implements Runnable, ReaderObserver {
 	private DatagramSocket socket = null;
 	private InetAddress serverAddr = null;
 	private int serverPort = 10000;
-	private int clientPort = 10001;
-	
+
 	int requestId = 0;
 	
 	private Console console = System.console();
@@ -39,7 +38,9 @@ public class CryptoClient implements Runnable, ReaderObserver {
 				console.printf("Quitting CryptoClient!\n");
 				return;
 			}
-			socket = new DatagramSocket(clientPort);
+			// Construct socket on any available port
+			socket = new DatagramSocket(0);
+			console.printf("Allocated client port is %d.\n", socket.getLocalPort());
 			
 			reader = new ResponseReader(socket, this);
 			reader.start();
@@ -97,10 +98,6 @@ public class CryptoClient implements Runnable, ReaderObserver {
 			e.printStackTrace();
 			addr = null;
 		}
-		console.printf("Enter port number for this client in the form \"10001\"\n");
-		String port = console.readLine("Port number > ");
-		clientPort = Integer.valueOf(port).intValue();
-		
 		return addr;
 	}
 
