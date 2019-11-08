@@ -74,7 +74,9 @@ public class CryptoClient implements Runnable, ReaderObserver {
 			} while (choice != QUIT_MENU);
 			
 		} catch (SocketException e) {
-			e.printStackTrace();
+			System.out.println("Error: The socket is not reached.");
+			System.out.println("Expected valid clientport for socket.");
+			System.out.println("Socket is being reset.");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
