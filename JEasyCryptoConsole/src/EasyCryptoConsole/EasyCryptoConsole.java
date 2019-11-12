@@ -8,57 +8,56 @@ import easycrypto.EasyCryptoAPI;
 
 public class EasyCryptoConsole {
 
-    public static void main(String[] args) {
-        boolean output = false;
+	public static void main(String[] args) {
 
-        try {
-            System.setOut(new PrintStream(System.out, true, "UTF-8"));
-            System.setProperty("file.encoding", "UTF-8");
-            Console console = System.console();
+		try {
+			System.setOut(new PrintStream(System.out, true, "UTF-8"));
+			System.setProperty("file.encoding", "UTF-8");
+			Console console = System.console();
 
-            console.printf("Welcome to CryptoClient!\n");
-            console.printf("Supported methods are: %s\n", EasyCryptoAPI.methods());
+			console.printf("Welcome to CryptoClient!\n");
+			console.printf("Supported methods are: %s\n", EasyCryptoAPI.methods());
 
-            while (true) {
-                while (true) {
-                    String d = console.readLine("Do you wish to encrypt or decrypt (e or d)? 'q' to quit > ");
-                    EasyCryptoAPI.Result result;
+			while (true) {
+				String d = console.readLine("Do you wish to encrypt 'e', decrypt 'd', quit 'q'? > ");
 
-                    if (d.equalsIgnoreCase("e") || d.equalsIgnoreCase("d") || d.equalsIgnoreCase("q")) {
-                        if (d.equalsIgnoreCase("e")) {
-                            String e = console.readLine("Please enter text to be encrypted > ");
-                            String m = console.readLine("Please enter encryption method > ");
-                            result = EasyCryptoAPI.encrypt(e, m);
-                        } else if (d.equalsIgnoreCase("d")) {
-                            String e = console.readLine("Please enter text to be decrypted > ");
-                            String m = console.readLine("Please enter decryption method > ");
-                            result = EasyCryptoAPI.decrypt(e, m);
-                        } else {
-                            return;
-                        }
 
-                        console.printf("\nResult is: %d - %s\n", result.resultCode().ordinal(), result.resultCode().toString());
-                        switch (result.resultCode()) {
-                            case ESuccess: {
-                                console.printf("Encrypted text is: %s \n", result.result());
-                                System.out.println(result.result());
-                                break;
-                            }
-                            case EError:
-                            case ENotSupported: {
-                                console.printf("Encrypted text is: %s \n", result.result());
-                                break;
-                            }
-                        }
-                    } else {
-                        console.printf("Wrong input! Please type in 'e' or 'd' or 'q'!\n");
-                    }
-                }
-            }
-        } catch (UnsupportedEncodingException e1) {
-            e1.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+				EasyCryptoAPI.Result result;
+
+				if (d.equalsIgnoreCase("e")) {
+					String e = console.readLine("Please enter text to be encrypted > ");
+					String m = console.readLine("Please enter encryption method > ");
+					result = EasyCryptoAPI.encrypt(e, m);
+				} else if (d.equalsIgnoreCase("d")) {
+					String e = console.readLine("Please enter text to be decrypted > ");
+					String m = console.readLine("Please enter decryption method > ");
+					result = EasyCryptoAPI.decrypt(e, m);
+				} else if (d.equalsIgnoreCase("q")) {
+					return;
+				} else {
+					System.err.println("Sorry, '" + d + "' is not a valid command.\n");
+					continue;
+				}
+
+				console.printf("\nResult is: %d - %s\n", result.resultCode().ordinal(), result.resultCode().toString());
+				switch (result.resultCode()) {
+				case ESuccess: {
+					console.printf("Encrypted text is: %s \n", result.result());
+					System.out.println(result.result());
+					break;
+				}
+				case EError:
+				case ENotSupported: {
+					console.printf("Encrypted text is: %s \n", result.result());
+					break;
+				}
+				}
+			}
+
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
