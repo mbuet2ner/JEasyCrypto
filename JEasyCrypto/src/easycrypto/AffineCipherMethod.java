@@ -2,32 +2,48 @@ package easycrypto;
 
 import easycrypto.EasyCryptoAPI.Result;
 import easycrypto.EasyCryptoAPI.ResultCode;
-import java.lang.Math;
+
 
 class AffineCipherMethod implements CryptoMethod {
-	//attributes
-	//Alphabet string for encryption
+	
+	/**
+	 * Alphabet string for encryption
+	 */
 	private final static String alphabet = "abcdefghijklmnopqrstuvwxyz";
 	
 	private final static int m = alphabet.length();
 	
-	//Hard-coded parameters for encryption (https://en.wikipedia.org/wiki/Affine_cipher)
+	/**
+	 * Hard-coded parameters for encryption (https://en.wikipedia.org/wiki/Affine_cipher)
+	 */
 	private final static int a = 5;
 	private final static int b = 8;
 	
-	//a^-1 (mod inverse) is calculated  based on a and length of alphabet vector (m)
+	/**
+	 * a^-1 (mod inverse) is calculated  based on a and length of alphabet vector (m)
+	 */
 	private final static int aInverted = 21;
 	
 	
-	//Encryption method that takes the string to encrypt as the input and returns encrypted string
+	/**
+	 * Encryption method that takes the string to encrypt as the input and returns encrypted string
+	 * @param toEncrypt a string to be encrypted
+	 * @return result an encrypted string
+	 */	
 	@Override
 	public Result encrypt(final String toEncrypt) {
-		//Allocate new result string (empty string)
+		/**
+		 * Allocate new result string (empty string)
+		 */
 		String result = new String();
 		
-		//Do encryption for each character
+		/**
+		 * Do encryption for each character
+		 */
 		for(char c: toEncrypt.toCharArray()){
-			//if the character is whitespace, insert whitespace for encryption (could be changed to some other char as well)
+			/** 
+			 * if the character is whitespace, insert whitespace for encryption (could be changed to some other char as well)
+			 */
 			if (c == ' ') {
 				result += c;
 				continue;
@@ -38,16 +54,27 @@ class AffineCipherMethod implements CryptoMethod {
 		return new Result(ResultCode.ESuccess, result);
 	}
 	
-	//Encryption method that takes the string to decrypt as the input and returns decrypted string
+	/**
+	 * Decryption method that takes the string to decrypt as the input and returns decrypted string
+	 * @param toDecrypt a string to be decrypted
+	 * @return result a decrypted string
+	 */
 	@Override
 	public Result decrypt(final String toDecrypt) {
 		
+		/**
+		 * Allocate new result string (empty string)
+		 */
 		String result = new String();
 		
-		//Do decryption for each character
+		/**
+		 * Do decryption for each character
+		 */
 		for(char c: toDecrypt.toCharArray()){
 			
-			//if the character is whitespace, insert whitespace for decryption (could be changed to some other char as well)
+			/** 
+			 * if the character is whitespace, insert whitespace for decrypted string (could be changed to some other char as well)
+			 */
 			if (c == ' ') {
 				result += c;
 				continue;
@@ -68,7 +95,10 @@ class AffineCipherMethod implements CryptoMethod {
 		return new Result(ResultCode.ESuccess, result);
 	}
 	
-	//Returns the name of the method as a string 
+	/**
+	 * Returns the name of the method as a string 
+	 * @return constant String
+	 */
 	@Override
 	public String method() {
 		return "affine";
