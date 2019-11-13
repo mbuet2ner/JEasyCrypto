@@ -73,16 +73,25 @@ public class CryptoClient implements Runnable, ReaderObserver {
 				}
 			} while (choice != QUIT_MENU);
 			
-		} catch (SocketException e) {
-			System.out.println("Error: The socket is not reached.");
-			System.out.println("Expected valid clientport for socket.");
-			System.out.println("Socket is being reset.");
+		} catch (BindException e) {
+			System.err.println("Error: binding a socket to a local address and port Failed");
+			System.err.println("Expected valid local address and port for socket.");
+		} catch (ConnectException e) {
+			System.err.println("Error: connection Failed");
+			System.err.println("Expected valid server address and port for socket.");
+		} catch (NoRouteToHostException e) {
+			System.err.println("Error: no route to host");
+			System.err.println("Expected reachable host.");
+		} catch (PortUnreachableException e) {
+			System.err.println("Error: port unreachable");
+			System.err.println("Expected reachable port.");	
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			reader.interrupt();
 			reader = null;
+			System.err.println("Socket is being reset.");
 			socket.close();
 			socket = null;
 		}
