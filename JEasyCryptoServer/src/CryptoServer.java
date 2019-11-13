@@ -6,11 +6,14 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.util.HashMap;
 
-import org.json.*;
+//Java-Json Library
+import org.json.JSONObject;
+import org.json.JSONException;
+
 
 import easycrypto.EasyCryptoAPI;
 
-// https://code.google.com/archive/p/json-simple/
+//https://github.com/stleary/JSON-java
 // http://www.geeksforgeeks.org/parse-json-java/
 
 public class CryptoServer implements Runnable {
@@ -87,8 +90,6 @@ public class CryptoServer implements Runnable {
 				} finally {
 					if (null != response && null != sender) {
 						System.out.println("Sending response: " + response);
-						System.out.println("Response length: " + response.length());
-
 						DatagramPacket sendPacket = new DatagramPacket(response.getBytes("UTF-8"), response.length());
 						sendPacket.setAddress(sender);
 						sendPacket.setPort(packet.getPort());

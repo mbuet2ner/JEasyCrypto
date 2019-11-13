@@ -7,8 +7,8 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.HashMap;
 
-import org.json.simple.JSONObject;
 
+import org.json.JSONObject;
 
 public class CryptoClient implements Runnable, ReaderObserver {
 

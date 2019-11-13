@@ -2,8 +2,9 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
-import org.json.*;
-
+//Java-Json Library
+import org.json.JSONObject;
+import org.json.JSONException;
 
 public class ResponseReader extends Thread {
 
@@ -27,7 +28,6 @@ public class ResponseReader extends Thread {
 				System.out.println("Starting to receive responses...");
 				socket.receive(packet);
 				System.out.println("Response received.");
-				System.out.println("Packet length: " + packet.getLength());
 				String receivedData = new String(packet.getData(), 0, packet.getLength() ,"UTF-8");
 				System.out.println("Received raw data: " + receivedData);
 				System.out.println("Parsing...");
