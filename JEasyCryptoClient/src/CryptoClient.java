@@ -40,7 +40,7 @@ public class CryptoClient implements Runnable, ReaderObserver {
 			}
 			// Construct socket on any available port
 			socket = new DatagramSocket(0);
-			console.printf("Allocated client port is %d.\n", socket.getLocalPort());
+			console.printf("Allocated client port is: %d\n", socket.getLocalPort());
 			
 			reader = new ResponseReader(socket, this);
 			reader.start();
