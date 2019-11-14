@@ -11,6 +11,8 @@ class CryptoMethodFactory {
 			return new MatrixMethod();
 		} else if (method.equalsIgnoreCase("cyr")) {
 			return new CyrMethod();
+		} else if (method.equalsIgnoreCase("affine")){
+			return new AffineCipherMethod();
 		}
 		return null;
 	}
@@ -23,6 +25,8 @@ class CryptoMethodFactory {
 		method = new MatrixMethod();
 		methods.add(method.method());
 		method = new CyrMethod();
+		methods.add(method.method());
+		method = new AffineCipherMethod();
 		methods.add(method.method());
 		return methods;
 	}
