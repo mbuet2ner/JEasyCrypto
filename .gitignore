@@ -226,4 +226,6 @@ Temporary Items
 # Ignore all local history of files
 .history
 
+*.iml
+
 # End of https://www.gitignore.io/api/osx,java,eclipse,intellij,visualstudiocode

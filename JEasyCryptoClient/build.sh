@@ -1,2 +1,2 @@
 mkdir -p bin
-javac src/*.java -classpath "../json-simple-1.1.1.jar:." -d bin
+javac src/*.java -classpath "../json-20190722.jar:." -d bin

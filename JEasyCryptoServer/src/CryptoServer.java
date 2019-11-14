@@ -1,16 +1,19 @@
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.util.HashMap;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.*;
+//Java-Json Library
+import org.json.JSONObject;
+import org.json.JSONException;
+
 
 import easycrypto.EasyCryptoAPI;
 
-// https://code.google.com/archive/p/json-simple/
+//https://github.com/stleary/JSON-java
 // http://www.geeksforgeeks.org/parse-json-java/
 
 public class CryptoServer implements Runnable {
@@ -56,9 +59,9 @@ public class CryptoServer implements Runnable {
 					System.out.println("Sender is: " + sender.getHostAddress() + ":" + packet.getPort());
 					System.out.println("Received raw data: " + receivedData);
 					System.out.println("Parsing...");
-					JSONObject root = (JSONObject) new JSONParser().parse(receivedData);
-	
-					id = ((Long) root.get("id")).longValue(); // id of the operation, for async operations.
+					JSONObject root = new JSONObject(receivedData);
+
+					id = Long.valueOf((Integer)(root.get("id"))); // id of the operation, for async operations.
 					operation = (String) root.get("operation"); // request/response
 					
 					EasyCryptoAPI.Result result = null;
@@ -81,13 +84,13 @@ public class CryptoServer implements Runnable {
 				} catch (IOException ioe) {
 					ioe.printStackTrace();
 					response = createResponse(operation, id, new EasyCryptoAPI.Result(EasyCryptoAPI.ResultCode.EError, ioe.getLocalizedMessage()));
-				} catch (ParseException e) {
+				} catch (JSONException e) {
 					e.printStackTrace();
 					response = createResponse(operation, id, new EasyCryptoAPI.Result(EasyCryptoAPI.ResultCode.EError, e.getLocalizedMessage()));
 				} finally {
 					if (null != response && null != sender) {
 						System.out.println("Sending response: " + response);
-						DatagramPacket sendPacket = new DatagramPacket(response.getBytes(), response.length());
+						DatagramPacket sendPacket = new DatagramPacket(response.getBytes("UTF-8"), response.length());
 						sendPacket.setAddress(sender);
 						sendPacket.setPort(packet.getPort());
 						try {
@@ -99,7 +102,7 @@ public class CryptoServer implements Runnable {
 				}
 				
 			}
-		} catch (SocketException e) {
+		} catch (SocketException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 			
 		} finally {
@@ -117,7 +120,7 @@ public class CryptoServer implements Runnable {
 		responseMap.put("result", result.resultCode().ordinal());
 		responseMap.put("data", result.result());
 		JSONObject ResponseJsonObject = new JSONObject(responseMap);
-		String responseString = ResponseJsonObject.toJSONString();
+		String responseString = ResponseJsonObject.toString();
 
 		return responseString;
 	}
