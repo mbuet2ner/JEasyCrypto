@@ -21,7 +21,7 @@ Repository includes four components:
 * **JEasyCryptoServer**, which provides a way to use the Lib from internet, using UDP and JSON.
 * **JEasyCryptoClient**, which uses the Server over network for en-/decryption of text.
 
-Additionally, the code uses the **JSON-java** library (see below).
+Additionally, the code uses the **JSON-java** library which is licensed under [this LICENSE](https://github.com/stleary/JSON-java/blob/master/LICENSE). (see below).
 
 You can also run the Client and Server on the same machine. When launching the client, give "localhost" as the server address in this case.
 
