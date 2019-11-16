@@ -6,8 +6,6 @@ import java.io.UnsupportedEncodingException;
 
 import easycrypto.EasyCryptoAPI;
 
-
-
 public class EasyCryptoConsole {
 
 	public static void main(String[] args) {
@@ -21,8 +19,8 @@ public class EasyCryptoConsole {
 			console.printf("Supported methods are: %s\n", EasyCryptoAPI.methods());
 
 			while (true) {
-				String d = console.readLine("Do you wish to encrypt or decrypt (e or d)? > ");
-				
+				String d = console.readLine("Do you wish to encrypt 'e', decrypt 'd', quit 'q'? > ");
+
 
 				EasyCryptoAPI.Result result;
 
@@ -34,10 +32,13 @@ public class EasyCryptoConsole {
 					String e = console.readLine("Please enter text to be decrypted > ");
 					String m = console.readLine("Please enter decryption method > ");
 					result = EasyCryptoAPI.decrypt(e, m);
-				} else {
+				} else if (d.equalsIgnoreCase("q")) {
 					return;
+				} else {
+					System.err.println("Sorry, '" + d + "' is not a valid command.\n");
+					continue;
 				}
-		        
+
 				console.printf("\nResult is: %d - %s\n", result.resultCode().ordinal(), result.resultCode().toString());
 				switch (result.resultCode()) {
 				case ESuccess: {
@@ -59,5 +60,4 @@ public class EasyCryptoConsole {
 			e.printStackTrace();
 		}
 	}
-
 }
