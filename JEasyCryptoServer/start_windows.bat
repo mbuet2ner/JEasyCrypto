@@ -1,2 +1,2 @@
-java -cp ../EasyCryptoLib.jar;../json-simple-1.1.1.jar;bin;. CryptoServer $1
+java -cp ../EasyCryptoLib.jar;../json-20190722.jar;bin;. CryptoServer $1
 
