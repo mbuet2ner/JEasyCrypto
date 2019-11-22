@@ -1,4 +1,4 @@
-package easycrypto;
+Epackage easycrypto;
 
 import easycrypto.EasyCryptoAPI.Result;
 
