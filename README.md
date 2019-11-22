@@ -35,11 +35,9 @@ You can also run the Client and Server on the same machine. When launching the c
     * Dependencies
         * Uses https://github.com/stleary/JSON-java on Server and Client to create/parse JSON.
         * Download the [json-20190722.jar](https://repo1.maven.org/maven2/org/json/json/20190722/json-20190722.jar) to project root directory before building and running the Client or Server.
-2. Build the lib using build.sh, which exports it as a .jar file into the project root directory.
-    * If on Windows, port the shell scripts or use a shell that understands shell scripts
-3. Then build the server and client, using corresponding build.sh files for each. 
-4. Use the provided start.sh files to start the client and server. Use Client and Server for cryption. 
-    * Run Server in one console window, and the Client in another.
+2. Build the lib using `build.sh` (on GNU/Linux, macOS) or `build_windows.bat` (on Windows), which exports it as a `.jar` file into the project root directory.
+3. Then build the server and client, using corresponding build files for each. 
+4. Use the provided `start.sh` (on GNU/Linux, macOS) or `start_windows.bat` (on Windows) files to start the client and server. Use Client and Server for cryption.
 5. For testing the Lib without network, you can use the Console without the overhead of networking between the Client and Server.
 
 
