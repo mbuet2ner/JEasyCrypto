@@ -156,8 +156,13 @@ public class CryptoClient implements Runnable, ReaderObserver {
 	}
 	
 	private void handleEncryptRequest() throws IOException {
-		System.out.println("The methods are: reverse, matrix, cyr");
+		System.out.println("The methods are: reverse, matrix, cyr, rot13");
 		String method = enterText("Give encryption method", true);
+
+                if (method.toLowerCase().equals("rot13")) {
+                        System.out.println("Warning: characters other than the basic Latin alphabet (a-z) will not be encrypted by rot13!");
+                }
+
 		String text = enterText("Give text to encrypt", false);
 		String data = createRequest("encrypt", method, text);
 		DatagramPacket packet = new DatagramPacket(data.getBytes(), data.length(), serverAddr, serverPort);
