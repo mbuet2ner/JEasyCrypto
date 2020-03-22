@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>README &#8212; JEasyCrypto  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How To Use Client" href="howtouse.html" />
+    <link rel="prev" title="Welcome to JEasyCrypto manual" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="readme">
+<h1>README<a class="headerlink" href="#readme" title="Permalink to this headline">¶</a></h1>
+<p>JEasyCrypto is a library and a collection of related applications enabling encryption and decryption of text using different methdods.</p>
+<p>The code here has been created for educational purposes, and the apps (probably) have no other value for anyone.</p>
+<p><em>(c) Antti Juustila, Degree Program of Information Processing Science, University of Oulu, Finland.</em></p>
+</div>
+<div class="section" id="what-is-this-repository-for">
+<h1>What is this repository for?<a class="headerlink" href="#what-is-this-repository-for" title="Permalink to this headline">¶</a></h1>
+<p>Repository includes four components:</p>
+<ul class="simple">
+<li><p><strong>JEasyCryptoLib</strong> which implements several crypto methods and is extensible with new methods.</p></li>
+<li><p><strong>JEasyCryptoConsole</strong>, a console app which enables using the cryptographic methods of the Lib</p></li>
+<li><p><strong>JEasyCryptoServer</strong>, which provides a way to use the Lib from internet, using UDP and JSON.</p></li>
+<li><p><strong>JEasyCryptoClient</strong>, which uses the Server over network for en-/decryption of text.</p></li>
+</ul>
+<p>Additionally, the code uses the <strong>JSON-java</strong> library which is licensed under [this LICENSE](<a class="reference external" href="https://github.com/stleary/JSON-java/blob/master/LICENSE">https://github.com/stleary/JSON-java/blob/master/LICENSE</a>). (see below).</p>
+<p>You can also run the Client and Server on the same machine. When launching the client, give “localhost” as the server address in this case.</p>
+</div>
+<div class="section" id="how-do-i-get-set-up">
+<h1>How do I get set up?<a class="headerlink" href="#how-do-i-get-set-up" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple" start="0">
+<li><dl class="simple">
+<dt>For this project, we use <cite>openjdk</cite>.</dt><dd><ul class="simple">
+<li><p>Install instructions and download links for all systems can be found [here](<a class="reference external" href="https://openjdk.java.net/install/">https://openjdk.java.net/install/</a>).</p></li>
+<li><p>The current version used is <cite>openjdk 11.0.4</cite>.</p></li>
+<li><p>We encourage you to use the [IntelliJ IDEA](<a class="reference external" href="https://www.jetbrains.com/idea/">https://www.jetbrains.com/idea/</a>) IDE.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Clone the project.</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>Dependencies</dt><dd><ul>
+<li><p>Uses <a class="reference external" href="https://github.com/stleary/JSON-java">https://github.com/stleary/JSON-java</a> on Server and Client to create/parse JSON.</p></li>
+<li><p>Download the [json-20190722.jar](<a class="reference external" href="https://repo1.maven.org/maven2/org/json/json/20190722/json-20190722.jar">https://repo1.maven.org/maven2/org/json/json/20190722/json-20190722.jar</a>) to project root directory before building and running the Client or Server.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Build the lib using <cite>build.sh</cite> (on GNU/Linux, macOS) or <cite>build_windows.bat</cite> (on Windows), which exports it as a <cite>.jar</cite> file into the project root directory.</p></li>
+<li><p>Then build the server and client, using corresponding build files for each.</p></li>
+<li><p>Use the provided <cite>start.sh</cite> (on GNU/Linux, macOS) or <cite>start_windows.bat</cite> (on Windows) files to start the client and server. Use Client and Server for cryption.</p></li>
+<li><p>For testing the Lib without network, you can use the Console without the overhead of networking between the Client and Server.</p></li>
+</ol>
+</div>
+<div class="section" id="contribution-guidelines">
+<h1>Contribution guidelines<a class="headerlink" href="#contribution-guidelines" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>To get started contributing to the project, see the [contributing guide](CONTRIBUTING.md).</p></li>
+<li><p>Please also take a look at our [code of conduct](code-of-conduct.md), that acts as a guideline on how to communicate with people on this project. If you experienced a violation, do not hesitate to contact one of the maintainers.</p></li>
+<li><p>We follow [these](<a class="reference external" href="https://google.github.io/styleguide/javaguide.html">https://google.github.io/styleguide/javaguide.html</a>) Java coding conventions, so please make sure that you adhere to them.</p></li>
+<li><p>Please format your code. This project considers the output of the [IntelliJ IDEA](<a class="reference external" href="https://www.jetbrains.com/idea/">https://www.jetbrains.com/idea/</a>) IDE <cite>Reformat Code</cite> option as the gold standard.</p></li>
+</ul>
+</div>
+<div class="section" id="who-do-i-talk-to">
+<h1>Who do I talk to?<a class="headerlink" href="#who-do-i-talk-to" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Please use our Slack channel to message the maintainers.</p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="contents.html">JEasyCrypto</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to JEasyCrypto manual</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#what-is-this-repository-for">What is this repository for?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#how-do-i-get-set-up">How do I get set up?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#contribution-guidelines">Contribution guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#who-do-i-talk-to">Who do I talk to?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtouse.html">How To Use Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtouse.html#startup">Startup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtouse.html#main-menu">Main menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtouse.html#capability-menu">Capability menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtouse.html#encrypt-menu">Encrypt menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtouse.html#decrypt-menu">Decrypt menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtouse.html#quit-menu">Quit menu</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="contents.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to JEasyCrypto manual</a></li>
+      <li>Next: <a href="howtouse.html" title="next chapter">How To Use Client</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Markus Oja.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/readme.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
